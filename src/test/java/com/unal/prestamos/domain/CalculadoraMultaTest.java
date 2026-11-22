@@ -35,4 +35,17 @@ class CalculadoraMultaTest {
         // Assert
         assertEquals(2000, multa);
     }
+
+    @Test
+    void calcular_devueltoElDiaLimite_noHayMulta() {
+        // Arrange
+        CalculadoraMulta calculadora = new CalculadoraMulta();
+        LocalDate devolucion = LIMITE;
+
+        // Act
+        int multa = calculadora.calcular(LIMITE, devolucion, false);
+
+        // Assert
+        assertEquals(0, multa);
+    }
 }
