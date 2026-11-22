@@ -12,6 +12,6 @@ public class CalculadoraMulta {
         if (diasDeRetraso <= 0) {
             return 0;
         }
-        return (int) diasDeRetraso * MULTA_POR_DIA;
+        return Math.min((int) diasDeRetraso * MULTA_POR_DIA, 50000);
     }
 }
