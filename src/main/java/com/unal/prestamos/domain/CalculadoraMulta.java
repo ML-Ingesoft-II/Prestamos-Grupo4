@@ -5,11 +5,13 @@ import java.time.temporal.ChronoUnit;
 
 public class CalculadoraMulta {
 
+    private static final int MULTA_POR_DIA = 2000;
+
     public int calcular(LocalDate fechaLimite, LocalDate fechaDevolucion, boolean esMonitor) {
-        long dias = ChronoUnit.DAYS.between(fechaLimite, fechaDevolucion);
-        if (dias <= 0) {
+        long diasDeRetraso = ChronoUnit.DAYS.between(fechaLimite, fechaDevolucion);
+        if (diasDeRetraso <= 0) {
             return 0;
         }
-        return (int) dias * 2000;
+        return (int) diasDeRetraso * MULTA_POR_DIA;
     }
 }
