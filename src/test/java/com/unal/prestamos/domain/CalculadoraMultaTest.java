@@ -74,4 +74,17 @@ class CalculadoraMultaTest {
         // Assert
         assertEquals(50000, multa);
     }
+
+    @Test
+    void calcular_monitorConTresDiasDeRetraso_pagaLaMitad() {
+        // Arrange
+        CalculadoraMulta calculadora = new CalculadoraMulta();
+        LocalDate devolucion = LIMITE.plusDays(3);
+
+        // Act
+        int multa = calculadora.calcular(LIMITE, devolucion, true);
+
+        // Assert
+        assertEquals(3000, multa);
+    }
 }
