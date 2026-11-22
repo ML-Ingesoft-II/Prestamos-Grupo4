@@ -48,4 +48,17 @@ class CalculadoraMultaTest {
         // Assert
         assertEquals(0, multa);
     }
+
+    @Test
+    void calcular_cuarentaDiasDeRetraso_aplicaTope() {
+        // Arrange
+        CalculadoraMulta calculadora = new CalculadoraMulta();
+        LocalDate devolucion = LIMITE.plusDays(40);
+
+        // Act
+        int multa = calculadora.calcular(LIMITE, devolucion, false);
+
+        // Assert
+        assertEquals(50000, multa);
+    }
 }
